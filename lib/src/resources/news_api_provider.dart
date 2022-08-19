@@ -21,5 +21,6 @@ class NewsApiProvider {
     final parsedJson =jsonDecode(response.body);
 
     return ItemModel.fromJson(parsedJson);
+    //Second Commit
   }
 }
