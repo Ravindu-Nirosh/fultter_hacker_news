@@ -11,14 +11,14 @@ class NewsApiProvider {
 
   fetchTopIds() async {
     final response = await client.get(Uri.parse('$_root/topstories.json'));
-    final ids = jsonDecode(response.body);
+    final ids = json.decode(response.body);
     
     return ids;
   }
 
   fetchItems(int id) async{
     final response = await client.get(Uri.parse('$_root/item/$id.json'));
-    final parsedJson =jsonDecode(response.body);
+    final parsedJson =json.decode(response.body);
 
     return ItemModel.fromJson(parsedJson);
     //Second Commit
