@@ -1,3 +1,4 @@
+import 'dart:convert';
 
 class ItemModel {
 
@@ -29,6 +30,21 @@ class ItemModel {
       score =parsedJason['score'],
       title =parsedJason['title'],
       descendants =parsedJason['descendants'];
+
+  ItemModel.fromDb(Map<String,dynamic> parsedJason)
+      :id = parsedJason['id'],
+        deleted =parsedJason['deleted'] == 1,
+        type =parsedJason['type'],
+        by =parsedJason['by'],
+        time =parsedJason['time'],
+        text =parsedJason['text'],
+        dead =parsedJason['dead'] == 1,
+        parent =parsedJason['parent'],
+        kids =jsonDecode(parsedJason['kids']),
+        url =parsedJason['url'],
+        score =parsedJason['score'],
+        title =parsedJason['title'],
+        descendants =parsedJason['descendants'];
        
 
 }

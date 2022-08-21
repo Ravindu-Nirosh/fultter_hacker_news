@@ -36,4 +36,24 @@ class NewsDbProvider {
         }
     );
   }
+
+  fetchItems(int id) async {
+    final map =await db?.query(
+      "Items",
+      columns: null,
+      where: "id = ?",
+      whereArgs: [id],
+    );
+
+    if(map!.length > 0){
+      return ItemModel.fromDb(map.first);
+    }
+    return null;
+  }
+
+  addItems() {
+
+  }
+
+
 }
